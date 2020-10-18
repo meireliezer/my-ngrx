@@ -3,3 +3,9 @@
     {{user.first}} {{user.last}} {{user.age }}  ({{user.id}})
 </div>
 
+
+<div>Async</div>
+<div *ngFor="let user of users$ | async">
+    {{user.first}} {{user.last}} {{user.age }}  ({{user.id}})
+</div>
+
