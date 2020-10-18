@@ -6,6 +6,7 @@ import { UsersState } from './store/users.reducer';
 import { Observable} from 'rxjs';
 import { tap} from 'rxjs/operators';
 import { UsersActions } from './store/actions-tyle';
+import { usersFeatureSelector, usersSelector } from './store/users.selectors';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +22,7 @@ export class UsersComponent implements OnInit {
   constructor(private usesService: UserService,
     private store: Store<UsersState>) {
       this.users = this.usesService.getUsers();
-      this.store.select(state => state['users']).pipe(tap(console.log)).subscribe();
+      this.users$ = this.store.select(usersSelector).pipe(tap(console.log));
 
       this.store.dispatch(UsersActions.loadUsers());
     

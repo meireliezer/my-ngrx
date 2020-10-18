@@ -24,3 +24,9 @@ export function usersReducer(state, action) {
     return _usersReducer(state, action);
 }
     
+export const {
+    selectIds,
+    selectEntities,
+    selectAll,
+    selectTotal,
+  } = adapter.getSelectors();
