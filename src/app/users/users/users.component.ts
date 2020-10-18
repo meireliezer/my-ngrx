@@ -4,7 +4,7 @@ import { UserService } from './services/users.service';
 import { Store } from '@ngrx/store';
 import { UsersState } from './store/users.reducer';
 import { Observable} from 'rxjs';
-import { tap} from 'rxjs/operators';
+import { tap, map} from 'rxjs/operators';
 import { UsersActions } from './store/actions-tyle';
 import { usersFeatureSelector, usersSelector } from './store/users.selectors';
 
@@ -22,13 +22,18 @@ export class UsersComponent implements OnInit {
   constructor(private usesService: UserService,
     private store: Store<UsersState>) {
       this.users = this.usesService.getUsers();
-      this.users$ = this.store.select(usersSelector).pipe(tap(console.log));
+      this.users$ = this.store.select(usersSelector).pipe(
+        tap(console.log),
+        map(userMap =>  Object.values(userMap))
+        
+        )
 
-      this.store.dispatch(UsersActions.loadUsers());
+  
     
    }
 
   ngOnInit() {
+    this.store.dispatch(UsersActions.loadUsers());
   }
 
 }
