@@ -11,6 +11,7 @@ import { counterReducer } from './ngrx/counter.reducer';
 import { environment } from 'src/environments/environment';
 import { CounterEffects } from './ngrx/counter.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
@@ -20,12 +21,13 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    UsersModule,
     StoreModule.forRoot({ 
       count: counterReducer 
     }),
     EffectsModule.forRoot([CounterEffects]),
 
-    
+
      // Instrumentation must be imported after importing StoreModule (config is optional)
      StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
