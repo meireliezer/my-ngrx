@@ -5,7 +5,11 @@
 
 
 <div>Async</div>
-<div *ngFor="let user of users$ | async">
-    {{user.first}} {{user.last}} {{user.age }}  ({{user.id}})
+<div class="table">
+    <div *ngFor="let user of users$ | async; let odd = odd"
+        class="item"
+        [ngClass]="{'odd': odd}">
+        {{user.first}} {{user.last}} {{user.age }}  ({{user.id}})
+    </div>
 </div>
-
+<button>Add</button>
