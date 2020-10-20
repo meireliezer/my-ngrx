@@ -1,7 +1,5 @@
 import { createAction, props } from "@ngrx/store";
 import { User } from '../model/user.model';
-import { UserService } from '../services/users.service';
-
 
 export const loadUsers = createAction('[User component] load users');
 export const usersLoaded = createAction('[User component] users loaded', props<{payload:User[]}>());

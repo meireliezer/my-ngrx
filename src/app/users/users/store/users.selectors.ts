@@ -1,9 +1,17 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import * as UsersSelector from "./users.reducer";
-import { EntityState } from '@ngrx/entity';
+import { adapter } from './users.adapter';
 
 
 export const usersFeatureSelector = createFeatureSelector('users');
+
+export const {
+    selectIds,
+    selectEntities,
+    selectAll,
+    selectTotal,
+  } = adapter.getSelectors();
+
+
 
 // export const usersSelector = createSelector(
 //     usersFeatureSelector,
@@ -14,5 +22,5 @@ export const usersFeatureSelector = createFeatureSelector('users');
 
 export const usersSelector = createSelector(
     usersFeatureSelector,
-    UsersSelector.selectEntities,
+    selectEntities,
 )
