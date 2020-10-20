@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './model/user.model';
 import { UserService } from './services/users.service';
 import { Store } from '@ngrx/store';
-import { UsersState } from './store/users.reducer';
+import { UsersState } from './store/users.state';
 import { Observable} from 'rxjs';
 import { tap, map} from 'rxjs/operators';
 import { UsersActions } from './store/actions-tyle';

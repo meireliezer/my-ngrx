@@ -2,18 +2,14 @@ import { User } from '../model/user.model';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { UsersActions } from './actions-tyle';
+import { adapter } from './users.adapter';
+import { initialUserState, UsersState } from './users.state';
 
 
-export interface UsersState extends EntityState <User> {
-}
 
 
-export const adapter = createEntityAdapter<User>();
 
-export const initialUserState = adapter.getInitialState();
-
-
-const _usersReducer =  createReducer (
+const _usersReducer =  createReducer<UsersState> (
     initialUserState,
     on(UsersActions.usersLoaded,
      (state, action:any) =>  adapter.addAll(action.payload, state) )
