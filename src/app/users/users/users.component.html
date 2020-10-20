@@ -14,6 +14,7 @@
 </div>
 <button [disabled]="!(fromVaild$|async)">Add</button>
 <button [disabled]="!(fromVaild$|async)">Edit</button>
+<button (click)="clear()">Clear</button>
 <div class="form"
     [formGroup]="userForm">
     <div>

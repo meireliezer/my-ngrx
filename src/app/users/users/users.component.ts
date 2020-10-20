@@ -48,4 +48,8 @@ export class UsersComponent implements OnInit {
     this.store.dispatch(UsersActions.loadUsers());
   }
 
+  public clear(){
+    this.userForm.reset();
+  }
+
 }
