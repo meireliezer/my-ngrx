@@ -12,4 +12,27 @@
         {{user.first}} {{user.last}} {{user.age }}  ({{user.id}})
     </div>
 </div>
-<button>Add</button>
+<button [disabled]="!(fromVaild$|async)">Add</button>
+<button [disabled]="!(fromVaild$|async)">Edit</button>
+<div class="form"
+    [formGroup]="userForm">
+    <div>
+        <label> First Name:
+            <input type="text"
+            formControlName="firstName">
+        </label>        
+    </div>
+    <div>
+        <label> Last Name:
+            <input type="text"
+            formControlName="lastName">
+        </label>
+    </div>
+    <div>
+        <label> Age:
+            <input type="number"
+            formControlName="age">
+        </label>
+    </div>
+
+</div>
